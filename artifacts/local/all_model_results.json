@@ -1,0 +1,264 @@
+[
+  {
+    "model": "KNN_k5",
+    "features": "32x32 RGB flattened; x/128-1",
+    "hyperparameters": {
+      "k": 5
+    },
+    "validation_accuracy": 0.5910245554614734,
+    "test_accuracy": 0.5527397260273973,
+    "test_precision_damaged": 0.5531177829099307,
+    "test_recall_damaged": 0.6429530201342282,
+    "test_f1_damaged": 0.5946617008069522,
+    "train_seconds": 0.07984819996636361,
+    "inference_ms_per_image_model_only": 0.6515917808378804,
+    "train_rows": 10630,
+    "result_type": "local experiment",
+    "solver_note": "NumPy exact nearest-neighbor search; k=5."
+  },
+  {
+    "model": "LogisticRegression",
+    "features": "32x32 RGB flattened; x/128-1",
+    "hyperparameters": {
+      "C": 1.0,
+      "penalty": "L2",
+      "optimizer": "mini-batch Adam",
+      "bias": -0.19627650084233106,
+      "epochs_completed": 22,
+      "optimizer_steps": 462,
+      "best_validation_loss": 0.6696794738180317,
+      "early_stopped": true,
+      "learning_rate": 0.001
+    },
+    "validation_accuracy": 0.5901778154106689,
+    "test_accuracy": 0.5979452054794521,
+    "test_precision_damaged": 0.5796370967741935,
+    "test_recall_damaged": 0.7718120805369127,
+    "test_f1_damaged": 0.6620610247553251,
+    "train_seconds": 4.916773000033572,
+    "inference_ms_per_image_model_only": 0.007349931497815741,
+    "train_rows": 10630,
+    "result_type": "local experiment",
+    "solver_note": "NumPy mini-batch Adam, L2 penalty C=1, validation-loss early stopping; not scikit-learn LBFGS."
+  },
+  {
+    "model": "RBF_SVM",
+    "features": "32x32 RGB flattened; x/128-1",
+    "hyperparameters": {
+      "C": 1.0,
+      "gamma": 0.001,
+      "kernel": "RBF",
+      "bias": 1.0622019366212454,
+      "solver": "NumPy SMO",
+      "updates": 5273,
+      "support_count": 2081,
+      "converged_passes": 8
+    },
+    "validation_accuracy": 0.6519898391193903,
+    "test_accuracy": 0.613013698630137,
+    "test_precision_damaged": 0.5947368421052631,
+    "test_recall_damaged": 0.7583892617449665,
+    "test_f1_damaged": 0.6666666666666666,
+    "train_seconds": 0.5886503999354318,
+    "inference_ms_per_image_model_only": 0.06708815073505146,
+    "train_rows": 2500,
+    "result_type": "local experiment",
+    "solver_note": "NumPy SMO RBF SVM, C=1, gamma=0.001; fit on a seeded 2,500-row subset."
+  },
+  {
+    "model": "NumpyTinyCNN (alternative)",
+    "architecture": "32x32 RGB; Conv3x3 stride2 3->8, Conv3x3 stride2 8->16, global average pool, dense 16->2; trained from scratch with NumPy/Adam",
+    "hyperparameters": {
+      "seed": 42,
+      "optimizer": "Adam",
+      "learning_rate": 0.003,
+      "batch_size": 32,
+      "max_epochs": 12,
+      "epochs_run": 12,
+      "early_stopping_patience": 3,
+      "best_validation_loss": 0.6609596014022827
+    },
+    "validation_accuracy": 0.6181202370872142,
+    "test_accuracy": 0.5787671232876712,
+    "test_precision_damaged": 0.5668724279835391,
+    "test_recall_damaged": 0.7395973154362416,
+    "test_f1_damaged": 0.6418171228887595,
+    "test_confusion_matrix_labels_0_damaged_1_undamaged": [
+      [
+        551,
+        194
+      ],
+      [
+        421,
+        294
+      ]
+    ],
+    "train_seconds": 12.216838899999857,
+    "inference_ms_per_image_model_only": 0.029814246585847786,
+    "result_type": "local experiment",
+    "limitation": "Small CNN alternative; does not reproduce MobileNetV1, InceptionV3, ResNet50, or pretrained transfer learning."
+  },
+  {
+    "model": "mobilenet_v1",
+    "features": "ImageNet-pretrained frozen Keras backbone, global average pooled features",
+    "hyperparameters": {
+      "backbone": "mobilenet_1.00_224",
+      "weights": "ImageNet",
+      "backbone_trainable": false,
+      "head": "Dense(2), SGD learning_rate=0.01",
+      "epochs_run": 30,
+      "batch_size_features": 8,
+      "seed": 42,
+      "input_size": 224
+    },
+    "validation_accuracy": 0.8416596104995766,
+    "test_accuracy": 0.8239726027397261,
+    "test_precision_damaged": 0.7925659472422062,
+    "test_recall_damaged": 0.887248322147651,
+    "test_f1_damaged": 0.8372387587080431,
+    "test_confusion_matrix_labels_0_damaged_1_undamaged": [
+      [
+        661,
+        84
+      ],
+      [
+        173,
+        542
+      ]
+    ],
+    "train_seconds": 324.8,
+    "inference_ms_per_image_model_only": 0.048103219229881075,
+    "train_rows": null,
+    "result_type": "local experiment",
+    "feature_extraction_seconds": 321.6,
+    "head_fit_seconds": 3.1525303000817075,
+    "feature_dimension": 1024,
+    "weights": "ImageNet",
+    "framework": "TensorFlow 2.21.0",
+    "timing_note": "First uncached full feature extraction (321.6 s) plus linear-head fit (3.2 s); cache reuse excluded."
+  },
+  {
+    "model": "inception_v3",
+    "features": "ImageNet-pretrained frozen InceptionV3, global average pooled avg_pool features",
+    "hyperparameters": {
+      "backbone": "InceptionV3 (Keras ImageNet weights; frozen; avg_pool)",
+      "weights": "ImageNet",
+      "head": "Dense(2), SGD lr=0.01",
+      "epochs_run": 30,
+      "batch_size_features": 8,
+      "seed": 42,
+      "backbone_trainable": false,
+      "input_size": 299,
+      "layers": 313
+    },
+    "validation_accuracy": 0.8264182895850973,
+    "test_accuracy": 0.8116438356164384,
+    "test_precision_damaged": 0.7894088669950738,
+    "test_recall_damaged": 0.8604026845637583,
+    "test_f1_damaged": 0.8233782915863841,
+    "test_confusion_matrix_labels_0_damaged_1_undamaged": [
+      [
+        641,
+        104
+      ],
+      [
+        171,
+        544
+      ]
+    ],
+    "train_seconds": 1055.5225662998855,
+    "inference_ms_per_image_model_only": 0.05662150677829368,
+    "train_rows": null,
+    "result_type": "local experiment",
+    "feature_extraction_seconds": 1051.911733099958,
+    "head_fit_seconds": 3.6108331999275833,
+    "feature_dimension": 2048,
+    "framework": "TensorFlow 2.21.0"
+  },
+  {
+    "model": "InceptionV3_layer288_RBF_SVM",
+    "features": "Keras InceptionV3 layer 288 (activation_90) activation, spatial mean pooled to 384 features",
+    "hyperparameters": {
+      "architecture": "Keras InceptionV3 include_top=True, ImageNet weights",
+      "layer_index": 288,
+      "layer_name": "activation_90",
+      "layer_activation_shape": [
+        8,
+        8,
+        384
+      ],
+      "pooling": "spatial mean",
+      "kernel": "RBF",
+      "C": 1.0,
+      "gamma": 0.001,
+      "solver": "NumPy SMO",
+      "fit_rows": 2500,
+      "fit_subset_seed": 42,
+      "support_count": 2272,
+      "solver_updates": 2981,
+      "input_size": 299
+    },
+    "validation_accuracy": 0.7129551227773073,
+    "test_accuracy": 0.6931506849315069,
+    "test_precision_damaged": 0.6591639871382636,
+    "test_recall_damaged": 0.825503355704698,
+    "test_f1_damaged": 0.7330154946364721,
+    "test_confusion_matrix_labels_0_damaged_1_undamaged": [
+      [
+        615,
+        130
+      ],
+      [
+        318,
+        397
+      ]
+    ],
+    "train_seconds": 1052.249377900036,
+    "inference_ms_per_image_model_only": 0.034124109565522774,
+    "train_rows": null,
+    "result_type": "local experiment",
+    "feature_extraction_seconds": 1051.911733099958,
+    "svm_fit_seconds": 0.3376448000781238,
+    "feature_dimension": 384,
+    "framework": "TensorFlow 2.21.0",
+    "implementation_note": "Spatial pooling and seeded 2,500-row subset are compute adaptations."
+  },
+  {
+    "model": "resnet50",
+    "features": "ImageNet-pretrained frozen Keras backbone, global average pooled features",
+    "hyperparameters": {
+      "backbone": "resnet50",
+      "weights": "ImageNet",
+      "backbone_trainable": false,
+      "head": "Dense(2), SGD learning_rate=0.01",
+      "epochs_run": 30,
+      "batch_size_features": 8,
+      "seed": 42,
+      "input_size": 224
+    },
+    "validation_accuracy": 0.8416596104995766,
+    "test_accuracy": 0.8376712328767123,
+    "test_precision_damaged": 0.815136476426799,
+    "test_recall_damaged": 0.8818791946308725,
+    "test_f1_damaged": 0.8471953578336556,
+    "test_confusion_matrix_labels_0_damaged_1_undamaged": [
+      [
+        657,
+        88
+      ],
+      [
+        149,
+        566
+      ]
+    ],
+    "train_seconds": 1034.0504487999715,
+    "inference_ms_per_image_model_only": 0.0599803424548766,
+    "train_rows": null,
+    "result_type": "local experiment",
+    "feature_extraction_seconds": 1030.4903886000393,
+    "head_fit_seconds": 3.5600601999321952,
+    "feature_dimension": 2048,
+    "weights": "ImageNet",
+    "framework": "TensorFlow 2.21.0"
+  }
+]

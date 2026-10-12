@@ -1,0 +1,48 @@
+{
+  "model": "InceptionV3_layer288_RBF_SVM",
+  "features": "Keras InceptionV3 layer 288 (activation_90) activation, spatial mean pooled to 384 features",
+  "hyperparameters": {
+    "architecture": "Keras InceptionV3 include_top=True, ImageNet weights",
+    "layer_index": 288,
+    "layer_name": "activation_90",
+    "layer_activation_shape": [
+      8,
+      8,
+      384
+    ],
+    "pooling": "spatial mean",
+    "kernel": "RBF",
+    "C": 1.0,
+    "gamma": 0.001,
+    "solver": "NumPy SMO",
+    "fit_rows": 2500,
+    "fit_subset_seed": 42,
+    "support_count": 2272,
+    "solver_updates": 2981,
+    "input_size": 299
+  },
+  "validation_accuracy": 0.7129551227773073,
+  "test_accuracy": 0.6931506849315069,
+  "test_precision_damaged": 0.6591639871382636,
+  "test_recall_damaged": 0.825503355704698,
+  "test_f1_damaged": 0.7330154946364721,
+  "test_confusion_matrix_labels_0_damaged_1_undamaged": [
+    [
+      615,
+      130
+    ],
+    [
+      318,
+      397
+    ]
+  ],
+  "train_seconds": 1052.249377900036,
+  "inference_ms_per_image_model_only": 0.034124109565522774,
+  "train_rows": null,
+  "result_type": "local experiment",
+  "feature_extraction_seconds": 1051.911733099958,
+  "svm_fit_seconds": 0.3376448000781238,
+  "feature_dimension": 384,
+  "framework": "TensorFlow 2.21.0",
+  "implementation_note": "Spatial pooling and seeded 2,500-row subset are compute adaptations."
+}

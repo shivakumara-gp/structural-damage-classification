@@ -1,0 +1,68 @@
+[
+  {
+    "model": "KNN_k5",
+    "features": "32x32 RGB flattened; x/128-1",
+    "hyperparameters": {
+      "k": 5
+    },
+    "validation_accuracy": 0.5910245554614734,
+    "test_accuracy": 0.5527397260273973,
+    "test_precision_damaged": 0.5531177829099307,
+    "test_recall_damaged": 0.6429530201342282,
+    "test_f1_damaged": 0.5946617008069522,
+    "train_seconds": 0.07984819996636361,
+    "inference_ms_per_image_model_only": 0.6515917808378804,
+    "train_rows": 10630,
+    "result_type": "local experiment",
+    "solver_note": "NumPy exact nearest-neighbor search; k=5."
+  },
+  {
+    "model": "LogisticRegression",
+    "features": "32x32 RGB flattened; x/128-1",
+    "hyperparameters": {
+      "C": 1.0,
+      "penalty": "L2",
+      "optimizer": "mini-batch Adam",
+      "bias": -0.19627650084233106,
+      "epochs_completed": 22,
+      "optimizer_steps": 462,
+      "best_validation_loss": 0.6696794738180317,
+      "early_stopped": true,
+      "learning_rate": 0.001
+    },
+    "validation_accuracy": 0.5901778154106689,
+    "test_accuracy": 0.5979452054794521,
+    "test_precision_damaged": 0.5796370967741935,
+    "test_recall_damaged": 0.7718120805369127,
+    "test_f1_damaged": 0.6620610247553251,
+    "train_seconds": 4.916773000033572,
+    "inference_ms_per_image_model_only": 0.007349931497815741,
+    "train_rows": 10630,
+    "result_type": "local experiment",
+    "solver_note": "NumPy mini-batch Adam, L2 penalty C=1, validation-loss early stopping; not scikit-learn LBFGS."
+  },
+  {
+    "model": "RBF_SVM",
+    "features": "32x32 RGB flattened; x/128-1",
+    "hyperparameters": {
+      "C": 1.0,
+      "gamma": 0.001,
+      "kernel": "RBF",
+      "bias": 1.0622019366212454,
+      "solver": "NumPy SMO",
+      "updates": 5273,
+      "support_count": 2081,
+      "converged_passes": 8
+    },
+    "validation_accuracy": 0.6519898391193903,
+    "test_accuracy": 0.613013698630137,
+    "test_precision_damaged": 0.5947368421052631,
+    "test_recall_damaged": 0.7583892617449665,
+    "test_f1_damaged": 0.6666666666666666,
+    "train_seconds": 0.5886503999354318,
+    "inference_ms_per_image_model_only": 0.06708815073505146,
+    "train_rows": 2500,
+    "result_type": "local experiment",
+    "solver_note": "NumPy SMO RBF SVM, C=1, gamma=0.001; fit on a seeded 2,500-row subset."
+  }
+]

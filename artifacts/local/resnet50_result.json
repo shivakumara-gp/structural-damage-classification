@@ -1,0 +1,38 @@
+{
+  "model": "resnet50",
+  "features": "ImageNet-pretrained frozen Keras backbone, global average pooled features",
+  "hyperparameters": {
+    "backbone": "resnet50",
+    "weights": "ImageNet",
+    "backbone_trainable": false,
+    "head": "Dense(2), SGD learning_rate=0.01",
+    "epochs_run": 30,
+    "batch_size_features": 8,
+    "seed": 42,
+    "input_size": 224
+  },
+  "validation_accuracy": 0.8416596104995766,
+  "test_accuracy": 0.8376712328767123,
+  "test_precision_damaged": 0.815136476426799,
+  "test_recall_damaged": 0.8818791946308725,
+  "test_f1_damaged": 0.8471953578336556,
+  "test_confusion_matrix_labels_0_damaged_1_undamaged": [
+    [
+      657,
+      88
+    ],
+    [
+      149,
+      566
+    ]
+  ],
+  "train_seconds": 1034.0504487999715,
+  "inference_ms_per_image_model_only": 0.0599803424548766,
+  "train_rows": null,
+  "result_type": "local experiment",
+  "feature_extraction_seconds": 1030.4903886000393,
+  "head_fit_seconds": 3.5600601999321952,
+  "feature_dimension": 2048,
+  "weights": "ImageNet",
+  "framework": "TensorFlow 2.21.0"
+}

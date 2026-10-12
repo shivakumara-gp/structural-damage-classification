@@ -1,0 +1,65 @@
+# Source dataset arrays are large and must be supplied locally.
+dataset/*.npy
+dataset/*.zip
+dataset/*.jpg
+dataset/*.jpeg
+dataset/*.png
+dataset/*.webp
+dataset/*.bmp
+dataset/**/*.jpg
+dataset/**/*.jpeg
+dataset/**/*.png
+dataset/**/*.webp
+dataset/**/*.bmp
+
+# NumPy arrays commonly hold datasets, predictions, cached features, or snapshots.
+*.npy
+*.npz
+
+# Keep generated artifacts out by default, then allow small, useful result summaries and metric plots.
+artifacts/*
+!artifacts/local/
+artifacts/local/*
+!artifacts/local/all_model_results.csv
+!artifacts/local/all_model_results.json
+!artifacts/local/classical_results.csv
+!artifacts/local/classical_results.json
+!artifacts/local/classical_reports.json
+!artifacts/local/exact_duplicate_scan.json
+!artifacts/local/*_result.json
+!artifacts/local/*_history.json
+!artifacts/local/*_reports.json
+!artifacts/local/*_accuracy_comparison.png
+!artifacts/local/*_learning_curve.png
+!artifacts/local/*_confusion_matrix.png
+!artifacts/local/*_test_confusion.png
+!artifacts/local/*_validation_confusion.png
+outputs/
+
+# Local copies of trained models are binary artifacts, not source code.
+models/*.npz
+models/**/*.npz
+*.keras
+*.h5
+*.joblib
+
+# Local Python environments, downloaded wheels, and caches.
+.local_packages/
+.venv/
+.venv-local/
+__pycache__/
+*.py[cod]
+# Optional local notebooks are not part of the GitHub submission.
+notebooks/
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+# Dataset sample photographs are not included in the initial publication.
+reports/dataset_sample_preview.png
+# Local credentials, private keys, and secret files.
+.env
+.env.*
+!.env.example
+.secrets/
+*.pem
+*.key

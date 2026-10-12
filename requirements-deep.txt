@@ -1,0 +1,6 @@
+# Optional: required only for the PyTorch transfer-learning runner.
+# Windows Application Control currently blocks these binary libraries here.
+torch>=2.5
+torchvision>=0.20
+timm>=1.0
+scikit-learn

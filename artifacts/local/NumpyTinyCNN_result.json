@@ -1,0 +1,33 @@
+{
+  "model": "NumpyTinyCNN (alternative)",
+  "architecture": "32x32 RGB; Conv3x3 stride2 3->8, Conv3x3 stride2 8->16, global average pool, dense 16->2; trained from scratch with NumPy/Adam",
+  "hyperparameters": {
+    "seed": 42,
+    "optimizer": "Adam",
+    "learning_rate": 0.003,
+    "batch_size": 32,
+    "max_epochs": 12,
+    "epochs_run": 12,
+    "early_stopping_patience": 3,
+    "best_validation_loss": 0.6609596014022827
+  },
+  "validation_accuracy": 0.6181202370872142,
+  "test_accuracy": 0.5787671232876712,
+  "test_precision_damaged": 0.5668724279835391,
+  "test_recall_damaged": 0.7395973154362416,
+  "test_f1_damaged": 0.6418171228887595,
+  "test_confusion_matrix_labels_0_damaged_1_undamaged": [
+    [
+      551,
+      194
+    ],
+    [
+      421,
+      294
+    ]
+  ],
+  "train_seconds": 12.216838899999857,
+  "inference_ms_per_image_model_only": 0.029814246585847786,
+  "result_type": "local experiment",
+  "limitation": "Small CNN alternative; does not reproduce MobileNetV1, InceptionV3, ResNet50, or pretrained transfer learning."
+}

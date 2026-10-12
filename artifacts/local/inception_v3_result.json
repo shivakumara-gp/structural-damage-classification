@@ -1,0 +1,38 @@
+{
+  "model": "inception_v3",
+  "features": "ImageNet-pretrained frozen InceptionV3, global average pooled avg_pool features",
+  "hyperparameters": {
+    "backbone": "InceptionV3 (Keras ImageNet weights; frozen; avg_pool)",
+    "weights": "ImageNet",
+    "head": "Dense(2), SGD lr=0.01",
+    "epochs_run": 30,
+    "batch_size_features": 8,
+    "seed": 42,
+    "backbone_trainable": false,
+    "input_size": 299,
+    "layers": 313
+  },
+  "validation_accuracy": 0.8264182895850973,
+  "test_accuracy": 0.8116438356164384,
+  "test_precision_damaged": 0.7894088669950738,
+  "test_recall_damaged": 0.8604026845637583,
+  "test_f1_damaged": 0.8233782915863841,
+  "test_confusion_matrix_labels_0_damaged_1_undamaged": [
+    [
+      641,
+      104
+    ],
+    [
+      171,
+      544
+    ]
+  ],
+  "train_seconds": 1055.5225662998855,
+  "inference_ms_per_image_model_only": 0.05662150677829368,
+  "train_rows": null,
+  "result_type": "local experiment",
+  "feature_extraction_seconds": 1051.911733099958,
+  "head_fit_seconds": 3.6108331999275833,
+  "feature_dimension": 2048,
+  "framework": "TensorFlow 2.21.0"
+}

@@ -1,0 +1,39 @@
+{
+  "model": "mobilenet_v1",
+  "features": "ImageNet-pretrained frozen Keras backbone, global average pooled features",
+  "hyperparameters": {
+    "backbone": "mobilenet_1.00_224",
+    "weights": "ImageNet",
+    "backbone_trainable": false,
+    "head": "Dense(2), SGD learning_rate=0.01",
+    "epochs_run": 30,
+    "batch_size_features": 8,
+    "seed": 42,
+    "input_size": 224
+  },
+  "validation_accuracy": 0.8416596104995766,
+  "test_accuracy": 0.8239726027397261,
+  "test_precision_damaged": 0.7925659472422062,
+  "test_recall_damaged": 0.887248322147651,
+  "test_f1_damaged": 0.8372387587080431,
+  "test_confusion_matrix_labels_0_damaged_1_undamaged": [
+    [
+      661,
+      84
+    ],
+    [
+      173,
+      542
+    ]
+  ],
+  "train_seconds": 324.8,
+  "inference_ms_per_image_model_only": 0.048103219229881075,
+  "train_rows": null,
+  "result_type": "local experiment",
+  "feature_extraction_seconds": 321.6,
+  "head_fit_seconds": 3.1525303000817075,
+  "feature_dimension": 1024,
+  "weights": "ImageNet",
+  "framework": "TensorFlow 2.21.0",
+  "timing_note": "First uncached full feature extraction (321.6 s) plus linear-head fit (3.2 s); cache reuse excluded."
+}

@@ -1,0 +1,8 @@
+{
+  "method": "SHA-256 of the exact stored array row bytes",
+  "duplicate_groups": [],
+  "cross_split_duplicate_groups": [],
+  "unique_hashes": 13271,
+  "total_images": 13271,
+  "scope_note": "Detects exact stored duplicates only, not resized/cropped/perceptual duplicates."
+}
