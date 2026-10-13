@@ -97,7 +97,7 @@ Run these commands from the project root in PowerShell. If the virtual environme
 
    ```powershell
    python src/predict_local.py "path/to/building.jpg"
-   python src/predict_local.py "path/to/building.jpg" --model cnn
+   python src/predict_local.py "path/to/building.jpg"
    ```
 
    `--model` choices are `all`, `knn`, `logistic`, `svm`, and `cnn`. The command prints the predicted class. Saved model parameters are loaded from `artifacts/local/`.
@@ -121,7 +121,7 @@ Full metrics and methods are in [`reports/LOCAL_EXPERIMENT_REPORT.md`](reports/L
 
 The reference comparison is maintained as a report and CSV; there is no comparison-generation script. To update it, use the saved metrics in `artifacts/local/all_model_results.csv` and `artifacts/local/all_model_results.json`, check test metrics against the saved predictions and `dataset/task2_y_test.npy`, then update `reports/REFERENCE_COMPARISON.md` and `results/reference_comparison.csv` together. Keep reference validation and local test results distinct, and mark differences `N/C` when the protocols are not comparable.
 
-The current comparison includes all four requested architectures. The PyTorch implementation remains unavailable under the current Windows policy; the successful runs use TensorFlow/Keras CPU instead. Classifier inference times measure the prediction head on cached features and exclude CNN feature extraction.
+The current comparison includes all four requested architectures. The PyTorch implementation remains unavailable under the current Windows policy; the successful runs use TensorFlow/Keras CPU instead. Classifier inference times measure the prediction head on cached features and exclude CNN feature extraction..
 
 ## Version control
 
